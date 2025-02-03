@@ -86,7 +86,6 @@ const App = () => {
       <div className="pattern" />
       <div className="wrapper">
         <header>
-          <img src="./hero-img.png" alt="Banner" />
           <h1>
             Parde ke upar kya hai?
             <br />
