@@ -85,7 +85,7 @@ const App = () => {
     <main>
       <div className="pattern" />
       <div className="wrapper">
-        <header>
+        <header className="mt-30">
           <h1>
             Parde ke upar kya hai?
             <br />
