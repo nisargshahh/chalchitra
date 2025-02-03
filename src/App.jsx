@@ -5,6 +5,7 @@ import Loading from "./components/Loading";
 import MovieCard from "./components/MovieCard";
 import { useDebounce } from "react-use";
 import { getTrendingMovies, updateSearchCount } from "./appwrite.js";
+import { Analytics } from "@vercel/analytics/react"
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const VITE_API_READ_ACCESS_TOKEN = import.meta.env.VITE_API_READ_ACCESS_TOKEN;
@@ -124,6 +125,14 @@ const App = () => {
             </ul>
           )}
         </section>
+
+        <section className="footer">
+          <div className="text-l text-[#C6DE41] font-bold mt-20">
+              <h3><a href="https://github.com/nisargshahh">Nisarg Shah &#169; 2025</a></h3>
+          </div>
+        </section>
+
+        <Analytics/>
       </div>
     </main>
   );
