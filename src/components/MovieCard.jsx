@@ -2,18 +2,18 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-const MovieCard = ({
-  movie: {
+const MovieCard = ({ movie, onClick }) => {
+  const {
     title,
     id,
     vote_average,
     poster_path,
     release_date,
     original_language,
-  },
-}) => {
+  } = movie;
+
   return (
-    <div className="movie-card">
+    <div className="movie-card cursor-pointer" onClick={() => onClick(movie)}>
       <img
         src={
           poster_path
@@ -33,7 +33,7 @@ const MovieCard = ({
           <p className="lang">{original_language}</p>
           <span>|</span>
           <p className="year">
-            {release_date?release_date.split("-")[0] : "NA"}
+            {release_date ? release_date.split("-")[0] : "NA"}
           </p>
         </div>
       </div>
