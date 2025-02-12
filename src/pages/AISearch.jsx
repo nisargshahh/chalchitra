@@ -33,7 +33,7 @@ const AISearch = () => {
   const enhanceSearchWithAI = async (query) => {
     try {
       const client = new Cerebras({
-        apiKey: import.meta.env.VITE_CEREBRAS_API_KEY,
+        apiKey: import.meta.env.CEREBRAS_API_KEY,
       });
 
       const prompt = query;
