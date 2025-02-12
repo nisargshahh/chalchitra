@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cerebras/cerebras_cloud_sdk": "^1.19.0",
     "@tailwindcss/vite": "^4.0.1",
     "@vercel/analytics": "^1.4.1",
     "appwrite": "^17.0.0",
