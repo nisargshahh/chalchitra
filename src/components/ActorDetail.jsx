@@ -105,7 +105,6 @@ const ActorDetail = ({ actor, onClose }) => {
     return links[platform] || null;
   };
 
-  // Sort credits by popularity
   const sortedMovieCredits = credits?.cast
     ?.filter(credit => credit.media_type === "movie")
     ?.sort((a, b) => b.popularity - a.popularity) || [];
@@ -146,9 +145,14 @@ const ActorDetail = ({ actor, onClose }) => {
                     href={getSocialMediaLink("instagram", socialMedia.instagram_id)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C6DE41] hover:text-white"
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#c7de41" }}
                   >
-                    Instagram
+                    <img 
+                      src='/instagram.svg'
+                      alt="Instagram" 
+                      className="w-6 h-6"
+                    />
                   </a>
                 )}
                 {socialMedia.twitter_id && (
@@ -156,9 +160,14 @@ const ActorDetail = ({ actor, onClose }) => {
                     href={getSocialMediaLink("twitter", socialMedia.twitter_id)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C6DE41] hover:text-white"
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#c7de41" }}
                   >
-                    Twitter
+                    <img 
+                      src='/twitter.svg' 
+                      alt="Twitter" 
+                      className="w-6 h-6"
+                    />
                   </a>
                 )}
                 {socialMedia.facebook_id && (
@@ -166,9 +175,14 @@ const ActorDetail = ({ actor, onClose }) => {
                     href={getSocialMediaLink("facebook", socialMedia.facebook_id)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C6DE41] hover:text-white"
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#c7de41" }}
                   >
-                    Facebook
+                    <img 
+                      src='/facebook.svg'
+                      alt="Facebook" 
+                      className="w-6 h-6"
+                    />
                   </a>
                 )}
                 {socialMedia.imdb_id && (
@@ -176,9 +190,14 @@ const ActorDetail = ({ actor, onClose }) => {
                     href={getSocialMediaLink("imdb", socialMedia.imdb_id)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C6DE41] hover:text-white"
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#c7de41" }}
                   >
-                    IMDb
+                    <img 
+                      src='/imdb.svg' 
+                      alt="IMDb" 
+                      className="w-6 h-6"
+                    />
                   </a>
                 )}
               </div>
