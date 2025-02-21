@@ -31,7 +31,7 @@ const ActorCard = ({ actor, onClick }) => {
         <h3>{name}</h3>
         <div className="content">
           <div className="rating">
-            <img src="star.svg" alt="Stars" />
+            <img src="star.svg" alt="Stars"/>
             <p>{popularity ? popularity.toFixed(1) : "N/A"}</p>
           </div>
           <span>|</span>

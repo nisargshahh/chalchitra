@@ -23,14 +23,14 @@
 .home-button {
   display: inline-block;
   background-color: #153B44;
-  color: #C6DE41;
-  padding: 8px 20px;
+  color: #c7de41db;
+  padding: 15px 30px;
   border-radius: 10px;
   font-weight: bold;
   transition: all 0.3s ease;
-  margin-top: 16px;
+  margin-top: 30px;
   margin-bottom: 20px;
-  border: 1px solid #C6DE41;
+  border: 1px solid #C6DE41db;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 14px;
