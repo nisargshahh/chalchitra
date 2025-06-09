@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useEffect, useState } from "react";
+import AISummary from './AISummary';
 
 const ActorDetail = ({ actor, onClose }) => {
   const [personDetails, setPersonDetails] = useState(null);
@@ -253,6 +254,8 @@ const ActorDetail = ({ actor, onClose }) => {
               <span className="text-[#2D6E7E]">Popularity Score</span>
             </div>
 
+            <AISummary data={actor} type="actor" />
+            
             {personDetails?.biography && (
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-[#C6DE41] mb-2">Biography</h3>
