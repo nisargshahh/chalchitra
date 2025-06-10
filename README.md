@@ -10,11 +10,18 @@ Chalchitra is a movie discovery web application built using React and Vite. It a
   - Cast and crew details
   - Trailers and videos
   - Similar movies and reviews
+- **Actor Discovery**: Comprehensive actor profiles featuring:
+  - Detailed biography and personal information
+  - Complete filmography with movies and TV shows
+  - Social media integration (Instagram, Twitter, Facebook, IMDb)
+  - Photo galleries and career highlights
+  - Popularity metrics and career statistics
 - **AI-Powered Insights**: Intelligent movie and actor summaries powered by Cerebras AI that provide:
   - Creative movie recommendations with bold one-liners
   - Thematic analysis and statistical performance insights
   - Personalized actor career summaries and recommendations
-  - Dynamic, engaging content that adapts to ratings and popularity
+  - Smart analysis that adapts to ratings, popularity, and career trajectory
+  - Dynamic, engaging content with markdown formatting and visual effects
 - **Optimized Fetching**: Uses caching and debounced search to reduce unnecessary API calls.
 - **User Analytics**: Tracks search queries to analyze popular searches (powered by Appwrite backend).
 
@@ -55,6 +62,18 @@ To run this project locally, follow these steps:
    ```
 5. Open `http://localhost:5173` in your browser.
 
+## Key Components
+
+### Actor Discovery System
+- **ActorCard Component**: Interactive cards displaying actor profiles with popularity scores and known works
+- **ActorDetail Component**: Comprehensive actor profiles featuring:
+  - Detailed biography and personal information (birth date, place of birth, age calculation)
+  - Complete filmography sorted by popularity (movies and TV shows separately)
+  - Social media integration with direct links to Instagram, Twitter, Facebook, and IMDb
+  - Photo galleries with hover effects and responsive layouts
+  - AI-powered career insights and recommendations
+  - Real-time data fetching from TMDb API for credits, images, and social media info
+
 ## AI Features
 The Chalchitra AI Insight feature provides intelligent analysis of movies and actors:
 
@@ -67,6 +86,7 @@ The Chalchitra AI Insight feature provides intelligent analysis of movies and ac
 ### Actor Summaries
 - **Career Analysis**: Intelligent assessment of an actor's career trajectory and acting style
 - **Performance Insights**: Analysis of popularity, notable roles, and career highlights
+- **Biography Integration**: Works with comprehensive actor profiles including personal details, filmography, and social media presence
 - **Recommendation Engine**: Indirect suggestions on whether to explore more of an actor's work
 
 ### Technical Implementation
