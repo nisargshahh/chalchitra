@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useEffect, useState } from "react";
+import AISummary from './AISummary'; 
 
 const MovieDetail = ({ movie, onClose }) => {
   const [credits, setCredits] = useState(null);
@@ -156,6 +157,8 @@ const MovieDetail = ({ movie, onClose }) => {
                   </span>
                 )}
               </div>
+
+              <AISummary data={movie} type="movie" />
 
               {movie.genres && (
                 <div className="flex flex-wrap gap-2 mb-4">
