@@ -35,6 +35,7 @@ const Home = () => {
 
   const fetchMovies = async (query = "") => {
     setisLoading(true);
+    seterrorMessage("");
     setmovieList([]);
     try {
       const endpoint = query

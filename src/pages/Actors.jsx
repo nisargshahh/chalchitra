@@ -34,6 +34,7 @@ const Actors = () => {
 
   const fetchActors = async (query = "") => {
     setisLoading(true);
+    seterrorMessage("");
     setactorList([]);
     try {
       const endpoint = query
@@ -55,8 +56,8 @@ const Actors = () => {
 
       const filteredAndSortedActors = data.results
         .filter(actor => actor.popularity >= 5)
-        // .sort((a, b) => a.name.localeCompare(b.name));
-      
+      // .sort((a, b) => a.name.localeCompare(b.name));
+
       setactorList(filteredAndSortedActors || []);
     } catch (error) {
       console.error(error);
@@ -88,7 +89,7 @@ const Actors = () => {
   const handleActorClick = async (actor) => {
     const details = await fetchActorDetails(actor.id);
     if (details) {
-      setSelectedActor({...actor, ...details});
+      setSelectedActor({ ...actor, ...details });
     }
   };
 
@@ -98,11 +99,11 @@ const Actors = () => {
         `${API_BASE_URL}/person/popular?page=1`,
         API_OPTIONS
       );
-      
+
       if (!response.ok) {
         throw new Error("Failed to fetch popular actors");
       }
-      
+
       const data = await response.json();
       setpopularActors(data.results.slice(0, 10) || []);
     } catch (error) {
