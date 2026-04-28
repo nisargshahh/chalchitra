@@ -9,6 +9,7 @@ import { getTrendingMovies, updateSearchCount } from "../appwrite.js";
 import { Analytics } from "@vercel/analytics/react";
 import MovieDetail from "../components/MovieDetail.jsx";
 import Footer from "../components/Footer.jsx";
+import PageAISummary from "../components/PageAISummary.jsx";
 import { Link } from "react-router-dom";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
@@ -99,7 +100,7 @@ const Home = () => {
     try {
       const movies = await getTrendingMovies();
 
-      settrendingList(movies);
+      settrendingList(movies || []);
     } catch (error) {
       console.error(`Error fetching trending movies: ${error}`);
     }
@@ -136,6 +137,10 @@ const Home = () => {
             <btn className="home-button">Search for Actors</btn>
           </Link>
         </header>
+
+        {movieList.length > 0 && (
+          <PageAISummary data={movieList.slice(0, 10)} type="movie" />
+        )}
 
         {trendingList.length > 0 && (
           <section className="trending">

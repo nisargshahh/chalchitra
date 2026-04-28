@@ -99,3 +99,92 @@ export const generateActorSummary = async (actor) => {
     return "The Chalchitra bot is asleep Zzz.";
   }
 };
+
+export const generateTop10MoviesSummary = async (movies) => {
+  try {
+    const client = new Cerebras({
+      apiKey: import.meta.env.VITE_CEREBRAS_API_KEY,
+    });
+
+    const moviesData = movies.map(movie => ({
+      title: movie.title || movie.name,
+      rating: movie.vote_average,
+      popularity: movie.popularity
+    }));
+
+    const prompt = `Write a single, continuous paragraph (strictly between 100 and 150 words) reviewing the current top 10 trending movies. Do not use bullet points or line breaks. Do NOT use emojis. Do NOT use EM dashes. Rely STRICTLY on the provided JSON data; do NOT hallucinate plotlines, facts, or information outside of the data. Start with a bold, exciting one-liner setting the tone. Briefly analyze the overarching themes, highlight one or two standout titles based ONLY on the data, playfully roast any questionable ones, and end with a unified verdict. Ensure the entire response is one single paragraph. Top 10 Movies data: ${JSON.stringify(moviesData)}`;
+
+    const stream = await client.chat.completions.create({
+      model: "llama3.1-8b",
+      stream: true,
+      max_completion_tokens: 300,
+      temperature: 0.7,
+      top_p: 1,
+      messages: [
+        {
+          role: "system",
+          content: "You are a smart, slightly sassy AI film critic. Your response MUST be exactly one single paragraph containing 100 to 150 words. No line breaks, no bullet points, NO emojis, and NO EM dashes. Only use facts from the provided data."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ]
+    });
+
+    let summary = "";
+    for await (const chunk of stream) {
+      summary += chunk.choices[0].delta.content || "";
+    }
+
+    return summary.trim();
+  } catch (error) {
+    console.error("AI Top 10 Movies Summary generation failed:", error);
+    return "The Chalchitra bot is asleep Zzz.";
+  }
+};
+
+export const generateTop10ActorsSummary = async (actors) => {
+  try {
+    const client = new Cerebras({
+      apiKey: import.meta.env.VITE_CEREBRAS_API_KEY,
+    });
+
+    const actorsData = actors.map(actor => ({
+      name: actor.name,
+      popularity: actor.popularity,
+      knownFor: actor.known_for?.map(m => m.title || m.name).join(', ')
+    }));
+
+    const prompt = `Write a single, continuous paragraph (strictly between 100 and 150 words) reviewing the current top 10 trending actors. Do not use bullet points or line breaks. Do NOT use emojis. Do NOT use EM dashes. Rely STRICTLY on the provided JSON data; do NOT hallucinate facts, movies, or information outside of the data. Start with a bold one-liner. Briefly mention who is dominating the spotlight right now and why (using only their provided known works), call out a specific actor or two who are shining the brightest, and offer a fun verdict on the current state of star power. Ensure the entire response is one single paragraph. Top 10 Actors data: ${JSON.stringify(actorsData)}`;
+
+    const stream = await client.chat.completions.create({
+      model: "llama3.1-8b",
+      stream: true,
+      max_completion_tokens: 300,
+      temperature: 0.7,
+      top_p: 1,
+      messages: [
+        {
+          role: "system",
+          content: "You are a smart, slightly sassy AI entertainment critic. Your response MUST be exactly one single paragraph containing 100 to 150 words. No line breaks, no bullet points, NO emojis, and NO EM dashes. Only use facts from the provided data."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ]
+    });
+
+    let summary = "";
+    for await (const chunk of stream) {
+      summary += chunk.choices[0].delta.content || "";
+    }
+
+    return summary.trim();
+  } catch (error) {
+    console.error("AI Top 10 Actors Summary generation failed:", error);
+    return "The Chalchitra bot is asleep Zzz.";
+  }
+};
+

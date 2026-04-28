@@ -1,0 +1,106 @@
+.page-ai-summary {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin: 20px 0 40px 0;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.page-ai-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, #3b82f6, transparent);
+  opacity: 0.8;
+}
+
+.page-ai-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-ai-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(to right, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+}
+
+.glow-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+}
+
+.glow-icon.spinning {
+  animation: float 2s ease-in-out infinite;
+}
+
+.page-ai-content {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 300;
+  text-align: left;
+}
+
+.page-ai-content p {
+  margin-bottom: 0.5rem;
+}
+
+.page-ai-content strong {
+  color: #f8fafc;
+  font-weight: 600;
+  font-size: 1.15rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.page-ai-content em {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.loading-pulse {
+  color: #94a3b8;
+  font-size: 1rem;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (max-width: 768px) {
+  .page-ai-summary {
+    padding: 20px;
+    margin: 16px 0 32px 0;
+  }
+  .page-ai-header h3 {
+    font-size: 1.1rem;
+  }
+  .page-ai-content {
+    font-size: 0.95rem;
+  }
+}

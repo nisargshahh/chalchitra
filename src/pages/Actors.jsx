@@ -8,6 +8,7 @@ import { useDebounce } from "react-use";
 import { Analytics } from "@vercel/analytics/react";
 import ActorDetail from "../components/ActorDetail.jsx";
 import Footer from "../components/Footer.jsx";
+import PageAISummary from "../components/PageAISummary.jsx";
 import { Link } from "react-router-dom";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
@@ -138,6 +139,26 @@ const Actors = () => {
             <btn className="home-button">Back to Movies</btn>
           </Link>
         </header>
+
+        {actorList.length > 0 && (
+          <PageAISummary data={actorList.slice(0, 10)} type="actor" />
+        )}
+
+        {/* popularActors.length > 0 && (
+          <section className="trending">
+            <h2>Trending Actors</h2>
+            <PageAISummary data={popularActors} type="actor" />
+
+            <ul>
+              {popularActors.map((actor, index) => (
+                <li key={actor.id}>
+                  <p>{index + 1}</p>
+                  <img src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt={actor.name} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) */}
 
         <section className="all-movies">
           <h2 className="mt-[4px]">All Actors</h2>
